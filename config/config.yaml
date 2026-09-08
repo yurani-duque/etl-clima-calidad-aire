@@ -1,0 +1,18 @@
+project_name: etl-sdg-weather-air-quality
+sdg: "ODS 13 - Accion por el clima / ODS 11 - Ciudades sostenibles"
+
+source:
+  file: data/raw/GlobalWeatherRepository.csv
+  encoding: utf-8
+
+schema:
+  name: public
+  tables:
+    fact: fact_weather_air_quality
+    dim_location: dim_location
+    dim_date: dim_date
+    dim_condition: dim_condition
+
+load:
+  strategy: full_load
+  batch_size: 5000
